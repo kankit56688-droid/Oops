@@ -1,36 +1,36 @@
 
+import java.util.Random;
 import java.util.Scanner;
 
-
-
-class Student{
-    String name;
-    int age;
-
-  void displayinfo(){
-  System.out.println("name =" + this.name);
-  System.out.println("age = " + this.age);
-}
-}
-
-
 public class Main {
+
     public static void main(String[] args) {
-      
-        Student s1 = new Student();
-        Student s2 = new Student();
-          
-          // s2.displayinfo(); 
-          
-          Scanner sc = new Scanner(System.in);
-           s1.name = sc.next();
-           s1.age = sc.nextInt();
+        Scanner sc = new Scanner(System.in);
+        Random rd = new Random();
 
-           s2.name = sc.next();
-           s2.age = sc.nextInt();
-           
-          s1.displayinfo();
-          s2.displayinfo();
+        int target = rd.nextInt(1, 101);
+        int attempts = 0;
 
-    } 
+        while (true) {
+
+            System.out.println("Enter a number between 1 to 100:");
+            int guess = sc.nextInt();
+
+            attempts++;
+
+            if (guess > target) {
+                System.out.println("Number is smaller");
+
+            } else if (guess < target) {
+                System.out.println("Number is greater");
+
+            } else {
+                System.out.println("We got the number!");
+                System.out.println("Attempts: " + attempts);
+                break;
+            }
+        }
+
+        sc.close();
+    }
 }
